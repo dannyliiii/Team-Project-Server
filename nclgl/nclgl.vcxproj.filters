@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Matrix4.cpp">
+      <Filter>Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTimer.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Frustum.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="MD5Anim.cpp">
+      <Filter>Rendering\Meshes\MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="MD5FileData.cpp">
+      <Filter>Rendering\Meshes\MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="MD5Mesh.cpp">
+      <Filter>Rendering\Meshes\MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="MD5Node.cpp">
+      <Filter>Rendering\Meshes\MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJMesh.cpp">
+      <Filter>Rendering\Meshes\OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Rendering\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneNode.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CubeRobot.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="OGLRenderer.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>Maths\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="TextMesh.cpp">
+      <Filter>Rendering\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkServices.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerNetwork.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common.h" />
+    <ClInclude Include="Matrix4.h">
+      <Filter>Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4.h">
+      <Filter>Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTimer.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="ChildMeshInterface.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Frustum.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="InputDevice.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="MD5Anim.h">
+      <Filter>Rendering\Meshes\MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="MD5FileData.h">
+      <Filter>Rendering\Meshes\MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="MD5Mesh.h">
+      <Filter>Rendering\Meshes\MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="MD5Node.h">
+      <Filter>Rendering\Meshes\MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJMesh.h">
+      <Filter>Rendering\Meshes\OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Rendering\Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="HeightMap.h">
+      <Filter>Rendering\Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneNode.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeRobot.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="OGLRenderer.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Maths\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="TextMesh.h">
+      <Filter>Rendering\Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="AlmostEqual.h" />
+    <ClInclude Include="NetworkData.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkServices.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerNetwork.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Maths">
+      <UniqueIdentifier>{aae1083e-3150-4ea2-9efa-ad481876a585}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{9e58d060-c635-4688-9770-9c39197e9134}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{9d70ff27-857c-499d-ac54-d7ec9fc29fbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{42cdb89c-1d24-48e4-a171-1a543ef64176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Meshes">
+      <UniqueIdentifier>{55ecc135-3b92-46c3-8816-b8e2b5ae41fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Meshes\MD5">
+      <UniqueIdentifier>{7374c7ed-5710-4594-a712-a4f8b07dea31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Meshes\OBJ">
+      <UniqueIdentifier>{a73b9e82-e53f-42c1-81fe-e4909a3a4347}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{70e43220-fe16-4d05-84c8-d58cc70e2ba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maths\Geometry">
+      <UniqueIdentifier>{1a3a05e1-16a3-4025-8ccc-08abbc49675a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{f74112a8-0935-4f77-a8b8-d88ec23501db}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
