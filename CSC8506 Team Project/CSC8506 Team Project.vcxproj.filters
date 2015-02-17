@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{2c6e1de1-4296-456d-bfd1-c942bfd9597c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{aadb3592-8402-47f4-a093-93c34d362653}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{105ea0fc-38d0-4aab-b264-148eea230989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Track">
+      <UniqueIdentifier>{187e3949-6ee2-4179-a8b2-9b4ea9632d5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Renderables">
+      <UniqueIdentifier>{9f1dc816-52aa-4cb1-83c5-b360ec857ea6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Track\Meshes">
+      <UniqueIdentifier>{3041cccd-6278-48cc-bac9-6265966d5d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Track\SceneNodes">
+      <UniqueIdentifier>{b65d3a14-4a23-4de3-ad97-d97e655c63eb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PhysicsNode.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSystem.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Spring.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionHelper.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClass.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEntity.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="MyGame.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="GInterface.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Framebuffer.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Track.cpp">
+      <Filter>Track</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackChunkMesh.cpp">
+      <Filter>Track\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackHeightGenMesh.cpp">
+      <Filter>Track\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackSplineMesh.cpp">
+      <Filter>Track\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackChunkSceneNode.cpp">
+      <Filter>Track\SceneNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackSplineSceneNode.cpp">
+      <Filter>Track\SceneNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackSpline.cpp">
+      <Filter>Track</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackRenderer.cpp">
+      <Filter>Track</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackSettings.cpp">
+      <Filter>Track</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackGenerator.cpp">
+      <Filter>Track</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackChunks.cpp">
+      <Filter>Track</Filter>
+    </ClCompile>
+    <ClCompile Include="Obstacle.cpp">
+      <Filter>Track</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEmitter.cpp">
+      <Filter>Rendering\Renderables</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSceneNode.cpp">
+      <Filter>Rendering\Renderables</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CollisionHelper.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionVolume.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Constraint.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="InertialMatrixHelper.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsNode.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSystem.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Spring.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="MyGame.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClass.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEntity.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugDrawer.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Track.h">
+      <Filter>Track</Filter>
+    </ClInclude>
+    <ClInclude Include="Skybox.h">
+      <Filter>Rendering\Renderables</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="GInterface.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Framebuffer.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="GInterfaceConstants.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackChunkMesh.h">
+      <Filter>Track\Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackHeightGenMesh.h">
+      <Filter>Track\Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackSplineMesh.h">
+      <Filter>Track\Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackChunkSceneNode.h">
+      <Filter>Track\SceneNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackSplineSceneNode.h">
+      <Filter>Track\SceneNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackSpline.h">
+      <Filter>Track</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackRenderer.h">
+      <Filter>Track</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackChunks.h">
+      <Filter>Track</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackSettings.h">
+      <Filter>Track</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackGenerator.h">
+      <Filter>Track</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstacle.h">
+      <Filter>Track</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEmitter.h">
+      <Filter>Rendering\Renderables</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSceneNode.h">
+      <Filter>Rendering\Renderables</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
