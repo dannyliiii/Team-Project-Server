@@ -1,30 +1,9 @@
-﻿  Window.cpp
-  TextMesh.cpp
-  stdafx.cpp
-  Shader.cpp
-  ServerNetwork.cpp
-  SceneNode.cpp
-  Quaternion.cpp
-  Plane.cpp
-  OGLRenderer.cpp
-  OBJMesh.cpp
-  NetworkServices.cpp
-  Mouse.cpp
-  Mesh.cpp
-d:\gameserver\team-project-server\nclgl\mesh.cpp(476): warning C4018: '<' : signed/unsigned mismatch
-d:\gameserver\team-project-server\nclgl\mesh.cpp(477): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-d:\gameserver\team-project-server\nclgl\mesh.cpp(479): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-  MD5Node.cpp
-  MD5Mesh.cpp
-  MD5FileData.cpp
-  MD5Anim.cpp
-  Matrix4.cpp
-  Keyboard.cpp
-  GameTimer.cpp
-  Generating Code...
-  Compiling...
-  Frustum.cpp
-  CubeRobot.cpp
-  Camera.cpp
-  Generating Code...
-  nclgl.vcxproj -> D:\GameServer\Team-Project-Server\nclgl\Debug\nclgl.lib
+﻿Build started 17/02/2015 23:27:47.
+     1>Project "C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\nclgl\nclgl.vcxproj" on node 2 (Build target(s)).
+     1>Lib:
+         nclgl.vcxproj -> C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\nclgl\Debug\nclgl.lib
+     1>Done Building Project "C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\nclgl\nclgl.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.06

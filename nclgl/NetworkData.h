@@ -15,6 +15,12 @@ enum PacketTypes {
 
     ACTION_EVENT = 1,
 
+	BEFORE_START = 2,
+
+	GAME_FINISHED = 3,
+
+	NEW_PLAYER = 4
+
 };
 
 struct Packet {
@@ -24,6 +30,7 @@ struct Packet {
 	int clientNumber;
 	Vector3 positon[MAX_PLAYER_NUMBER];
 	int inputs[NUMBER_OF_INPUT];
+	int gameStart; // 0:before start 1:start 2:playing  3:finished
 
     void serialize(char * data) {
         memcpy(data, this, sizeof(Packet));
