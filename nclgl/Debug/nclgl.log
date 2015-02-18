@@ -1,9 +1,2 @@
-﻿Build started 17/02/2015 23:27:47.
-     1>Project "C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\nclgl\nclgl.vcxproj" on node 2 (Build target(s)).
-     1>Lib:
-         nclgl.vcxproj -> C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\nclgl\Debug\nclgl.lib
-     1>Done Building Project "C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\nclgl\nclgl.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.06
+﻿  ServerNetwork.cpp
+  nclgl.vcxproj -> D:\GameServer\Team-Project-Server\nclgl\Debug\nclgl.lib

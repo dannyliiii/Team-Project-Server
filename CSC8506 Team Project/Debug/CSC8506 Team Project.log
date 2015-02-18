@@ -1,10 +1,8 @@
-﻿Build started 17/02/2015 23:27:47.
-     1>Project "C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\CSC8506 Team Project\CSC8506 Team Project.vcxproj" on node 2 (Build target(s)).
-       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
-     1>Link:
-         CSC8506 Team Project.vcxproj -> C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\Debug\Team Project Server.exe
-     1>Done Building Project "C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\CSC8506 Team Project\CSC8506 Team Project.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.07
+﻿  GameClass.cpp
+  Generating Code...
+  Compiling...
+  Renderer.cpp
+  MyGame.cpp
+  Main.cpp
+  Generating Code...
+  CSC8506 Team Project.vcxproj -> D:\GameServer\Team-Project-Server\Debug\Team Project Server.exe

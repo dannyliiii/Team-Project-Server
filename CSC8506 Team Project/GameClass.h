@@ -82,5 +82,6 @@ protected:
 	Packet sendPacket;
 	char network_data[MAX_PACKET_SIZE];
 
+	int test;
 };
 

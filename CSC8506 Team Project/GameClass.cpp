@@ -13,6 +13,7 @@ GameClass::GameClass()	{
 	client_id = 0;
 
 	network = new ServerNetwork();
+	test = 0;
 }
 
 GameClass::~GameClass(void)	{
@@ -81,8 +82,8 @@ void GameClass::ReceiveFromClients()
 		}
 
 		int i = 0;
-		while (i < (unsigned int)data_length)
-		{
+		/*while (i < (unsigned int)data_length)
+		{*/
 			recvPacket.deserialize(&(network_data[i]));
 			i += sizeof(Packet);
 
@@ -105,29 +106,23 @@ void GameClass::ReceiveFromClients()
 				sendPacket.packet_type = ACTION_EVENT;
 				sendPacket.positon[iter->first] = recvPacket.positon[iter->first];
 
-				/*	for(int i = 0 ; i < MAX_PLAYER_NUMBER; i ++){
-				cout<< sendPacket.positon[i] << endl;
-				}*/
-				cout << recvPacket.positon[iter->first];
-				cout << "===================================" << endl;
-
-				/*	for each (int input in recvPacket.inputs)
-				{
-				if(input == 1){
-				printf("!!");
-				}
-				}*/
 				for (int i = 0; i < NUMBER_OF_INPUT; i++){
 					if (recvPacket.inputs[i] == 1){
-						cout << i << endl;
+						switch (i){
+						case KEY_I:
+							cout << "Receive user input " << i << endl;
+							cout << "===================================" << endl;
+							sendPacket.positon[iter->first] += Vector3(0, 10, 0);
+							break;
+						default:
+							break;
+						}
 					}
 				}
-				cout << "===================================" << endl;
 
-				//printf("server received action event packet from client\n");
-
+				sendPacket.numberOfPlayers = test++;
 				SendActionPackets();
-
+				//printf("server received action event packet from client\n");
 				break;
 
 			default:
@@ -136,7 +131,7 @@ void GameClass::ReceiveFromClients()
 
 				break;
 			}
-		}
+		//}
 	}
 }
 
