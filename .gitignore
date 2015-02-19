@@ -54,3 +54,17 @@ nclgl/Debug/vc110.pdb
 Team Project Server.opensdf
 Team Project Server.sdf
 nclgl/Debug/CL.read.1.tlog
+*.log
+*.obj
+*.idb
+*.pdb
+*.exe
+*.ilk
+*.pdb
+*.tlog
+*.lib
+*.log
+*.idb
+*.pdb
+*.sdf
+*.suo
