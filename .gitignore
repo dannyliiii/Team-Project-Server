@@ -43,6 +43,7 @@ Temporary Items
 .apdisk
 *.tlog
 *.tlog
+Debug/
 Debug/Team Project Server.exe
 Debug/Team Project Server.exe
 Debug/Team Project Server.ilk
@@ -54,6 +55,7 @@ nclgl/Debug/vc110.pdb
 Team Project Server.opensdf
 Team Project Server.sdf
 nclgl/Debug/CL.read.1.tlog
+nclgl/Debug
 *.log
 *.obj
 *.idb
