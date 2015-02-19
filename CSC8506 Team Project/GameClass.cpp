@@ -94,17 +94,18 @@ void GameClass::ReceiveFromClients()
 
 				sendPacket.packet_type = INIT_CONNECTION;
 				sendPacket.clientNumber = iter->first;
-
+				sendPacket.positon[iter->first] = Vector3(0, 0, 0);
 				printf("server received init packet from client\n");
 
-				SendActionPackets();
+				SendInitPacket(sendPacket.clientNumber);
+				//SendActionPackets();
 
 				break;
 
 			case ACTION_EVENT:
 
 				sendPacket.packet_type = ACTION_EVENT;
-				sendPacket.positon[iter->first] = recvPacket.positon[iter->first];
+				//sendPacket.positon[iter->first] = recvPacket.positon[iter->first];
 
 				for (int i = 0; i < NUMBER_OF_INPUT; i++){
 					if (recvPacket.inputs[i] == 1){
@@ -145,4 +146,27 @@ void GameClass::SendActionPackets()
 	sendPacket.serialize(packet_data);
 
 	network->sendToAll(packet_data, packet_size);
+}
+
+void GameClass::SendInitPacket(int clientNumber){
+	// send action packet
+	const unsigned int packet_size = sizeof(Packet);
+	char packet_data[packet_size];
+
+	sendPacket.serialize(packet_data);
+
+	SOCKET currentSocket;
+	std::map<unsigned int, SOCKET>::iterator iter;
+	int iSendResult;
+
+	currentSocket  = ServerNetwork::sessions.find(clientNumber)->second;
+
+	iSendResult = NetworkServices::sendMessage(currentSocket, packet_data, packet_size);
+
+	if (iSendResult != 10035 && iSendResult == SOCKET_ERROR)
+	{
+		printf("send failed with error: %d\n", WSAGetLastError());
+		//closesocket(currentSocket);
+	}
+
 }

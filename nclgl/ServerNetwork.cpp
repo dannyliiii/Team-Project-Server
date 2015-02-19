@@ -49,8 +49,8 @@ ServerNetwork::ServerNetwork(void)
         exit(1);
     }
 
-    // Set the mode of the socket to be nonblocking
-    u_long iMode = 1;
+    u_long iMode = 1; // change to 0 to enable blocking
+	
     iResult = ioctlsocket(ListenSocket, FIONBIO, &iMode);
 
     if (iResult == SOCKET_ERROR) {
@@ -151,7 +151,7 @@ void ServerNetwork::sendToAll(char * packets, int totalSize)
         currentSocket = iter->second;
         iSendResult = NetworkServices::sendMessage(currentSocket, packets, totalSize);
 
-        if (iSendResult == SOCKET_ERROR) 
+        if (iSendResult!= 10035 && iSendResult == SOCKET_ERROR) 
         {
             printf("send failed with error: %d\n", WSAGetLastError());
             //closesocket(currentSocket);

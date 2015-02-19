@@ -63,6 +63,8 @@ public:
 
 	void SendActionPackets();
 
+	void SendInitPacket(int clientNumber);
+
 
 protected:
 	//float renderCounter;
