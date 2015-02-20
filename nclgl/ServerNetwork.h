@@ -46,5 +46,7 @@ public:
 
 	void removeClient();
 
+	static map<int, bool> idArray;
+
 };
 

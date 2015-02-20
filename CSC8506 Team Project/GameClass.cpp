@@ -3,6 +3,7 @@
 GameClass* GameClass::instance = NULL;
 unsigned int GameClass::client_id;
 
+
 GameClass::GameClass()	{
 	//renderCounter = 0.0f;
 	physicsCounter = 0.0f;
@@ -10,10 +11,9 @@ GameClass::GameClass()	{
 	elapsed = 0.0f;
 	instance = this;
 
-	client_id = 0;
-
 	network = new ServerNetwork();
-	test = 0;
+
+	client_id = 0;
 }
 
 GameClass::~GameClass(void)	{
@@ -60,7 +60,15 @@ void GameClass::UpdateNetwork()
 	if (network->acceptNewClient(client_id))
 	{
 		printf("client %d has been connected to the server\n", client_id);
-		client_id++;
+		network->idArray[client_id] = true;
+		map<int, bool>::iterator it;
+		for(it= network->idArray.begin(); it != network->idArray.end(); it ++){
+			if(!it->second){
+				client_id = it->first;
+				break;
+			}
+		}
+		
 	}
 
 	ReceiveFromClients();
@@ -95,7 +103,6 @@ void GameClass::ReceiveFromClients()
 			case INIT_CONNECTION:
 
 				sendPacket.packet_type = INIT_CONNECTION;
-				//send client number for client to record
 				sendPacket.clientNumber = iter->first;
 				//init position of spaceship
 				sendPacket.positon[iter->first] = Vector3(rand()%1000, 0, 0);

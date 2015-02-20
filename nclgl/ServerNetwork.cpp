@@ -2,12 +2,17 @@
 #include "ServerNetwork.h"
 
 std::map<unsigned int, SOCKET> ServerNetwork::sessions;
+std::map<int, bool> ServerNetwork::idArray;
+
 
 ServerNetwork::ServerNetwork(void)
 {
 
 	numberOfPlayer = 0;
 	rc = false;
+	for(int i = 0 ; i < MAX_PLAYER_NUMBER; i ++){
+		idArray.insert(pair<int, bool>(i, false));
+	}
 
 	// create WSADATA object
     WSADATA wsaData;
@@ -136,6 +141,8 @@ int ServerNetwork::receiveData(unsigned int client_id, char * recvbuf)
 				return 1;
 			}
             closesocket(currentSocket);
+			
+			idArray[client_id] = false;
 			//push disconneted client(s) to a vector
 			dcClient.push_back(client_id);
 			rc = true;

@@ -83,7 +83,5 @@ protected:
 	Packet recvPacket;
 	Packet sendPacket;
 	char network_data[MAX_PACKET_SIZE];
-
-	int test;
 };
 
