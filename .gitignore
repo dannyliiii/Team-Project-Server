@@ -70,3 +70,6 @@ nclgl/Debug
 *.pdb
 *.sdf
 *.suo
+*.tlog
+*.tlog
+*.tlog

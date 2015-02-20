@@ -29,7 +29,8 @@ _-_-_-_-_-_-_-""  ""
 //#include "../nclgl/ClientGame.h"
 #include "MyGame.h"
 #include <thread>
-#include "Window.h"
+//#include "Window.h"
+#include <ctime>
 #pragma comment(lib, "nclgl.lib")
 
 int Quit(bool pause = false, const string &reason = "") {
@@ -72,13 +73,16 @@ int main() {
 
 	bool running = true;
 	std::thread physics(physicsLoop, game, std::ref(running));
-		
+
+	GameTimer timer;
 	//while (Window::GetWindow().UpdateWindow() && !Window::GetKeyboard()->KeyDown(KEYBOARD_ESCAPE)){
 	while (true){
 		//float msec = Window::GetWindow().GetTimer()->GetTimedMS();	//How many milliseconds since last update?
-		float msec = 10;
+		
+		float msec = timer.GetTimedMS();
 		game->UpdateGame(msec);	//Update our game logic
 		game->UpdateNetwork();
+		cout << msec << endl;
 		
 	}
 	running = false;
