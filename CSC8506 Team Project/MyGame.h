@@ -66,7 +66,6 @@ protected:
 
 	GameEntity* theCube;
 
-
 	Mesh* cube;
 	Mesh* quad;
 	Mesh* sphere;
@@ -74,7 +73,7 @@ protected:
 	float pitch;
 	float yaw;
 
-	Track track;
+	//Track track;
 	
 	GameEntity* quadEntity;
 	GameEntity* player;

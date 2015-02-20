@@ -5,6 +5,10 @@ std::map<unsigned int, SOCKET> ServerNetwork::sessions;
 
 ServerNetwork::ServerNetwork(void)
 {
+
+	numberOfPlayer = 0;
+	rc = false;
+
 	// create WSADATA object
     WSADATA wsaData;
 
@@ -83,6 +87,7 @@ ServerNetwork::ServerNetwork(void)
         WSACleanup();
         exit(1);
     }
+
 }
 
 
@@ -104,7 +109,7 @@ bool ServerNetwork::acceptNewClient(unsigned int & id)
 
         // insert new client into session id table
         sessions.insert( pair<unsigned int, SOCKET>(id, ClientSocket) );
-
+		numberOfPlayer++;
         return true;
     }
 
@@ -131,6 +136,9 @@ int ServerNetwork::receiveData(unsigned int client_id, char * recvbuf)
 				return 1;
 			}
             closesocket(currentSocket);
+			//push disconneted client(s) to a vector
+			dcClient.push_back(client_id);
+			rc = true;
         }
 
         return iResult;
@@ -157,4 +165,13 @@ void ServerNetwork::sendToAll(char * packets, int totalSize)
             //closesocket(currentSocket);
         }
     }
+}
+
+void ServerNetwork::removeClient(){
+	rc = false;
+	for (unsigned int i = 0; i < dcClient.size(); i++){
+		sessions.erase(dcClient[i]);
+		numberOfPlayer--;
+	}
+	dcClient.clear();
 }

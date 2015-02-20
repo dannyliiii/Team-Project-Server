@@ -36,6 +36,15 @@ public:
     int iResult;
 
     // table to keep track of each client's socket
-    static std::map<unsigned int, SOCKET> sessions; 
+    static std::map<unsigned int, SOCKET> sessions;
+
+	int numberOfPlayer;
+
+	vector<int> dcClient;
+
+	bool rc;
+
+	void removeClient();
+
 };
 

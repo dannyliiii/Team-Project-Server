@@ -55,28 +55,28 @@ void physicsLoop(GameClass* game, bool& running) {
 
 int main() {
 
-	if (!Window::Initialise("csc508", 800, 600, false)) {
+	/*if (!Window::Initialise("csc508", 800, 600, false)) {
 		return Quit(true, "Window failed to initialise!");
-	}
+	}*/
 
-	if (!Renderer::Initialise()) {
+	/*if (!Renderer::Initialise()) {
 		return Quit(true, "Renderer failed to initialise!");
-	}
+	}*/
 
 	PhysicsSystem::Initialise();
 
 	MyGame* game = new MyGame();
 
-	Window::GetWindow().LockMouseToWindow(true);
-	Window::GetWindow().ShowOSPointer(false);
+	/*Window::GetWindow().LockMouseToWindow(true);
+	Window::GetWindow().ShowOSPointer(false);*/
 
 	bool running = true;
 	std::thread physics(physicsLoop, game, std::ref(running));
-	
-	while (Window::GetWindow().UpdateWindow() && !Window::GetKeyboard()->KeyDown(KEYBOARD_ESCAPE)){
-
-		float msec = Window::GetWindow().GetTimer()->GetTimedMS();	//How many milliseconds since last update?
-
+		
+	//while (Window::GetWindow().UpdateWindow() && !Window::GetKeyboard()->KeyDown(KEYBOARD_ESCAPE)){
+	while (true){
+		//float msec = Window::GetWindow().GetTimer()->GetTimedMS();	//How many milliseconds since last update?
+		float msec = 10;
 		game->UpdateGame(msec);	//Update our game logic
 		game->UpdateNetwork();
 		

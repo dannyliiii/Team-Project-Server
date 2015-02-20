@@ -64,6 +64,9 @@ void GameClass::UpdateNetwork()
 	}
 
 	ReceiveFromClients();
+	if (network->rc){
+		network->removeClient();
+	}
 }
 
 void GameClass::ReceiveFromClients()
@@ -91,28 +94,27 @@ void GameClass::ReceiveFromClients()
 
 			case INIT_CONNECTION:
 
-
 				sendPacket.packet_type = INIT_CONNECTION;
+				//send client number for client to record
 				sendPacket.clientNumber = iter->first;
-				sendPacket.positon[iter->first] = Vector3(0, 0, 0);
+				//init position of spaceship
+				sendPacket.positon[iter->first] = Vector3(rand()%1000, 0, 0);
 				printf("server received init packet from client\n");
 
 				SendInitPacket(sendPacket.clientNumber);
-				//SendActionPackets();
 
 				break;
 
 			case ACTION_EVENT:
 
 				sendPacket.packet_type = ACTION_EVENT;
-				//sendPacket.positon[iter->first] = recvPacket.positon[iter->first];
+				sendPacket.trackSeed = rand() % RAND_MAX;
 
 				for (int i = 0; i < NUMBER_OF_INPUT; i++){
 					if (recvPacket.inputs[i] == 1){
 						switch (i){
 						case KEY_I:
 							cout << "Receive user input " << i << endl;
-							cout << "===================================" << endl;
 							sendPacket.positon[iter->first] += Vector3(0, 10, 0);
 							break;
 						default:
@@ -121,9 +123,8 @@ void GameClass::ReceiveFromClients()
 					}
 				}
 
-				sendPacket.numberOfPlayers = test++;
+				sendPacket.numberOfPlayers = network->numberOfPlayer;
 				SendActionPackets();
-				//printf("server received action event packet from client\n");
 				break;
 
 			default:
@@ -149,7 +150,8 @@ void GameClass::SendActionPackets()
 }
 
 void GameClass::SendInitPacket(int clientNumber){
-	// send action packet
+
+	// send init packet
 	const unsigned int packet_size = sizeof(Packet);
 	char packet_data[packet_size];
 
@@ -163,7 +165,7 @@ void GameClass::SendInitPacket(int clientNumber){
 
 	iSendResult = NetworkServices::sendMessage(currentSocket, packet_data, packet_size);
 
-	if (iSendResult != 10035 && iSendResult == SOCKET_ERROR)
+	if (iSendResult!=10035 && iSendResult == SOCKET_ERROR)
 	{
 		printf("send failed with error: %d\n", WSAGetLastError());
 		//closesocket(currentSocket);

@@ -10,7 +10,7 @@ int PhysicsSystem::numCollisions = 0;
 int PhysicsSystem::numUpdatesPerSec = 0;
 
 PhysicsSystem::PhysicsSystem(void)	{
-	hm = new HeightMap(TEXTUREDIR"terrain.raw");
+	//hm = new HeightMap(TEXTUREDIR"terrain.raw");
 }
 
 PhysicsSystem::~PhysicsSystem(void)	{

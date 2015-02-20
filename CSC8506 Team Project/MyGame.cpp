@@ -42,26 +42,26 @@ MyGame::MyGame():
 	//sphere = new OBJMesh(MESHDIR"sphere.obj");
 	//sphere->SetTexture(SOIL_load_OGL_texture(TEXTUREDIR"texture_c_z.jpg", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS));
 
-	roll = 0.0f;
-	pitch = 0.0f;
-	yaw = 0.0f;
-	
-	GameEntity* quadEntity = BuildQuadEntity(1000.0f);
-	allEntities.push_back(quadEntity);
+	//roll = 0.0f;
+	//pitch = 0.0f;
+	//yaw = 0.0f;
+	//
+	//GameEntity* quadEntity = BuildQuadEntity(1000.0f);
+	//allEntities.push_back(quadEntity);
 
-	track.Generate();
-	std::cout << "Track Extents: " << track.GetLowerBound() << " " << track.GetUpperBound() << std::endl;
+	//track.Generate();
+	//std::cout << "Track Extents: " << track.GetLowerBound() << " " << track.GetUpperBound() << std::endl;
 
-	theCube = BuildCubeEntity(50.0f);
-	theCube->GetPhysicsNode().SetPosition(Vector3(0, 400, 200));
-	theCube->GetPhysicsNode().SetOrientation(Quaternion::AxisAngleToQuaterion(Vector3(0, 1, 0), -90.0f));
-	theCube->GetRenderNode().SetModelScale(Vector3(15, 15, 10));
-	theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, 0));
-	theCube->GetPhysicsNode().SetUseGravity(false);
-	theCube->GetPhysicsNode().SetRestable(false);
-	allEntities.push_back(theCube);
+	//theCube = BuildCubeEntity(50.0f);
+	//theCube->GetPhysicsNode().SetPosition(Vector3(0, 400, 200));
+	//theCube->GetPhysicsNode().SetOrientation(Quaternion::AxisAngleToQuaterion(Vector3(0, 1, 0), -90.0f));
+	//theCube->GetRenderNode().SetModelScale(Vector3(15, 15, 10));
+	//theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, 0));
+	//theCube->GetPhysicsNode().SetUseGravity(false);
+	//theCube->GetPhysicsNode().SetRestable(false);
+	//allEntities.push_back(theCube);
 
-	theCube->GetRenderNode().SetMaterial(shipMaterial);
+	//theCube->GetRenderNode().SetMaterial(shipMaterial);
 }
 
 MyGame::~MyGame(void)	{
