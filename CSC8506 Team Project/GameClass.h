@@ -65,6 +65,8 @@ public:
 
 	void SendInitPacket(int clientNumber);
 
+	// IDs for the clients connecting for table in ServerNetwork 
+	static unsigned int client_id;
 
 protected:
 	//float renderCounter;
@@ -76,8 +78,7 @@ protected:
 	//Camera* gameCamera;
 	static GameClass* instance;
 
-	// IDs for the clients connecting for table in ServerNetwork 
-	static unsigned int client_id;
+
 	ServerNetwork* network;
 
 	Packet recvPacket;

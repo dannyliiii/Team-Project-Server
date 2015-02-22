@@ -48,5 +48,7 @@ public:
 
 	static map<int, bool> idArray;
 
+	int findClientId();
+
 };
 

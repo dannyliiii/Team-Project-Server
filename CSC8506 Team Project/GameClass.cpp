@@ -61,18 +61,12 @@ void GameClass::UpdateNetwork()
 	{
 		printf("client %d has been connected to the server\n", client_id);
 		network->idArray[client_id] = true;
-		map<int, bool>::iterator it;
-		for(it= network->idArray.begin(); it != network->idArray.end(); it ++){
-			if(!it->second){
-				client_id = it->first;
-				break;
-			}
-		}
-		
+		client_id = network->findClientId();
 	}
 
 	ReceiveFromClients();
 	if (network->rc){
+		client_id = network->findClientId();
 		network->removeClient();
 	}
 }

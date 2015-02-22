@@ -141,7 +141,6 @@ int ServerNetwork::receiveData(unsigned int client_id, char * recvbuf)
 				return 1;
 			}
             closesocket(currentSocket);
-			
 			idArray[client_id] = false;
 			//push disconneted client(s) to a vector
 			dcClient.push_back(client_id);
@@ -181,4 +180,14 @@ void ServerNetwork::removeClient(){
 		numberOfPlayer--;
 	}
 	dcClient.clear();
+}
+
+int ServerNetwork::findClientId(){
+	map<int, bool>::iterator it;
+	for(it= idArray.begin(); it != idArray.end(); it ++){
+		if(!it->second){
+			return it->first;
+		}
+	}
+	return -1;
 }

@@ -82,7 +82,6 @@ int main() {
 		float msec = timer.GetTimedMS();
 		game->UpdateGame(msec);	//Update our game logic
 		game->UpdateNetwork();
-		cout << msec << endl;
 		
 	}
 	running = false;
