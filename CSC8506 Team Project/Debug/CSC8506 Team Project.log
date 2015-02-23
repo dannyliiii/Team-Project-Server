@@ -1,9 +1,10 @@
 ﻿  GameClass.cpp
-d:\gameserver\team-project-server\csc8506 team project\gameclass.cpp(108): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+d:\gameserver\team-project-server\csc8506 team project\gameclass.cpp(109): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
   Generating Code...
   Compiling...
   Renderer.cpp
   MyGame.cpp
+d:\gameserver\team-project-server\csc8506 team project\mygame.cpp(54): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
   Main.cpp
   Generating Code...
 TrackRenderer.obj : warning LNK4217: locally defined symbol ___glewActiveTexture imported in function "public: __thiscall TrackRenderer::TrackRenderer(class TrackSettings const &,class TrackChunks const &,class TrackSpline const &)" (??0TrackRenderer@@QAE@ABVTrackSettings@@ABVTrackChunks@@ABVTrackSpline@@@Z)

@@ -82,11 +82,11 @@ void	PhysicsNode::Update(float msec) {
 		target->SetTransform(BuildTransform());
 	}
 
-	if(vol){
-		CollisionCapsule& cc = *(CollisionCapsule*)vol;
-		Renderer::DrawDebugCross(DEBUGDRAW_PERSPECTIVE, cc.GetPos(), Vector3(20,20,20), Vector3(1,0,0));
-		Renderer::DrawDebugCross(DEBUGDRAW_PERSPECTIVE, cc.GetEp(), Vector3(20,20,20), Vector3(0,0,1));
-	}
+	//if(vol){
+	//	CollisionCapsule& cc = *(CollisionCapsule*)vol;
+	//	Renderer::DrawDebugCross(DEBUGDRAW_PERSPECTIVE, cc.GetPos(), Vector3(20,20,20), Vector3(1,0,0));
+	//	Renderer::DrawDebugCross(DEBUGDRAW_PERSPECTIVE, cc.GetEp(), Vector3(20,20,20), Vector3(0,0,1));
+	//}
 	
 }
 

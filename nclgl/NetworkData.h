@@ -30,9 +30,9 @@ struct Packet {
 	int clientNumber;
 	Vector3 positon[MAX_PLAYER_NUMBER];
 	int inputs[NUMBER_OF_INPUT];
-	int gameStart; // 0:before start 1:start 2:playing  3:finished
 	unsigned int trackSeed;
 	int activedPlayers[MAX_PLAYER_NUMBER];
+	int gameState;
 
     void serialize(char * data) {
         memcpy(data, this, sizeof(Packet));

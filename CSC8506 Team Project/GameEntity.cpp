@@ -12,6 +12,11 @@ GameEntity::GameEntity(SceneNode* s, PhysicsNode* p) {
 	physicsNode = p;
 }
 
+GameEntity::GameEntity(PhysicsNode* p) {
+	renderNode = NULL;
+	physicsNode = p;
+}
+
 GameEntity::~GameEntity(void)	{
 	DisconnectFromSystems();
 

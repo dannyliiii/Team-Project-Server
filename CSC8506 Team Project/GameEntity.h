@@ -46,6 +46,7 @@ public:
 
 	GameEntity(void);
 	GameEntity(SceneNode* s, PhysicsNode* p);
+	GameEntity(PhysicsNode* p);
 
 	virtual ~GameEntity(void);
 

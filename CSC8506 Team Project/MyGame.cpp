@@ -12,56 +12,19 @@ You can completely change all of this if you want, it's your game!
 
 */
 
+
 MyGame::MyGame():
 	cube(nullptr), quad(nullptr), sphere(nullptr) {
 
-	//Shader* simpleShader = new Shader(SHADERDIR"LightVertex.glsl", SHADERDIR"LightFragment.glsl");
-	//simpleShader->LinkProgram();
-	//Shader* diffuseShader = new Shader(SHADERDIR"fallbackVertex.glsl", SHADERDIR"fallbackFragment.glsl");
-	//diffuseShader->LinkProgram();
-	////Shader* mixShader = new Shader(SHADERDIR"fallbackVertex.glsl", SHADERDIR"mixFragment.glsl");
-	//Shader* mixShader = new Shader(SHADERDIR"mix.shader", SHADER_FRAGMENT | SHADER_VERTEX);
-	//mixShader->LinkProgram();
+	activedPlayers = new int[MAX_PLAYER_NUMBER];
 
-	//Texture* checkboard = new Texture("texture_c_z.jpg");
-	//Texture* barrenReds = new Texture("Barren Reds.jpg");
-	//Texture* smileyT = new Texture("smiley.png");
-	//Texture* shipT = new Texture("space.jpg");
-	//checkboardMaterial = new Material(simpleShader, checkboard);
-	//smileyMaterial = new Material(diffuseShader, smileyT);
-	//checkSmileyMaterial = new Material(mixShader, 2, checkboard, smileyT);
-	//shipMaterial = new Material(simpleShader, shipT);
+	for (int i = 0; i < MAX_PLAYER_NUMBER; i++){
+		activedPlayers[i] = 0;
+	}
 
-	//gameCamera = new Camera(-30.0f, 0.0f, Vector3(0, 450, 850));
-	//Renderer::GetRenderer().SetCamera(gameCamera);
-
-	/*cube = new OBJMesh(MESHDIR"SpaceRanger.obj");
-	cube->SetTexture(SOIL_load_OGL_texture(TEXTUREDIR"space.jpg", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS));*/
+	time = 0;
+	gameState = waiting;
 	
-	//quad = Mesh::GenerateQuad();
-	//sphere = new OBJMesh(MESHDIR"sphere.obj");
-	//sphere->SetTexture(SOIL_load_OGL_texture(TEXTUREDIR"texture_c_z.jpg", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS));
-
-	//roll = 0.0f;
-	//pitch = 0.0f;
-	//yaw = 0.0f;
-	//
-	//GameEntity* quadEntity = BuildQuadEntity(1000.0f);
-	//allEntities.push_back(quadEntity);
-
-	//track.Generate();
-	//std::cout << "Track Extents: " << track.GetLowerBound() << " " << track.GetUpperBound() << std::endl;
-
-	//theCube = BuildCubeEntity(50.0f);
-	//theCube->GetPhysicsNode().SetPosition(Vector3(0, 400, 200));
-	//theCube->GetPhysicsNode().SetOrientation(Quaternion::AxisAngleToQuaterion(Vector3(0, 1, 0), -90.0f));
-	//theCube->GetRenderNode().SetModelScale(Vector3(15, 15, 10));
-	//theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, 0));
-	//theCube->GetPhysicsNode().SetUseGravity(false);
-	//theCube->GetPhysicsNode().SetRestable(false);
-	//allEntities.push_back(theCube);
-
-	//theCube->GetRenderNode().SetMaterial(shipMaterial);
 }
 
 MyGame::~MyGame(void)	{
@@ -80,13 +43,45 @@ want your games to have some sort of internal logic to them, and this
 logic will be added to this function.
 */
 void MyGame::UpdateGame(float msec) {
-	//if (gameCamera) {
-	//	gameCamera->UpdateCamera(msec);
-	//}
 
-	for (vector<GameEntity*>::iterator i = allEntities.begin(); i != allEntities.end(); ++i) {
-		(*i)->Update(msec);
+	switch (gameState){
+	case waiting:
+		for (int i = 0; i < MAX_PLAYER_NUMBER; i++){
+			if (sendPacket.activedPlayers[i] == 1 && activedPlayers[i] == 0){
+				GameEntity* e = BuildSphereEntity(50.0, Vector3(0, 0, 0), Vector3(0, 0, 0));
+				Vector3 vel(0, 0, -10);
+				e->GetPhysicsNode().SetLinearVelocity(vel);
+				e->GetPhysicsNode().SetPosition(Vector3(rand() % 1000, 1000, 0));
+				e->GetPhysicsNode().SetAngularVelocity(vel*0.005f);
+				e->GetPhysicsNode().SetInverseMass(1.0f / 1.0f);
+				e->GetPhysicsNode().SetInverseInertia(InertialMatrixHelper::createSphereInvInertial(1.0f / 10.0f, 100.0f));
+				allEntities.push_back(e);
+				players.insert(pair<int, GameEntity*>(i, e));
+				activedPlayers[i] = 1;
+				cout << "Create player " << i << endl;
+			}
+			else if (sendPacket.activedPlayers[i] == 0 && activedPlayers[i] == 1){
+				delete players.find(i)->second;
+				players.erase(i);
+				activedPlayers[i] = 0;
+				cout << "Remove player " << i << endl;
+			}
+			else{
+				continue;
+			}
+		}
+		break;
+	case started:
+		break;
+	case finished:
+		break;
+	default:
+		break;
 	}
+	
+	//for (vector<GameEntity*>::iterator i = allEntities.begin(); i != allEntities.end(); ++i) {
+	//	(*i)->Update(msec);
+	//}
 
 	//press 1, launch projectile
 	/*if (Window::GetKeyboard()->KeyTriggered(KEYBOARD_1)) {
@@ -207,13 +202,6 @@ void MyGame::UpdateGame(float msec) {
 	//	std::cout << "Track Extents: " << track.GetLowerBound() << " " << track.GetUpperBound() << std::endl;
 	//}
 
-	////draw in wireframe mode
-	//if (Window::GetKeyboard()->KeyTriggered(KEYBOARD_F)) {
-	//	Renderer::GetRenderer().wireframe = !Renderer::GetRenderer().wireframe;
-	//}
-
-	//PhysicsSystem::GetPhysicsSystem().DrawDebug();
-
 }
 
 /*
@@ -253,7 +241,7 @@ GameEntity* MyGame::BuildSphereEntity(float radius, Vector3 pos, Vector3 vel) {
 	p->SetInverseInertia(InertialMatrixHelper::createSphereInvInertial(1.0f, radius));
 	p->SetInverseMass(1.0f);
 	p->SetCollisionVolume(new CollisionSphere(pos, radius));
-	GameEntity*g = new GameEntity(s, p);
+	GameEntity*g = new GameEntity(p);
 	g->ConnectToSystems();
 	//PhysicsSystem::GetPhysicsSystem().AddDebugDraw(p->GetCollisionVolume());
 	return g;

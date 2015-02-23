@@ -41,7 +41,6 @@ _-_-_-_-_-_-_-""  ""
 #include "Track.h"
 #include "Obstacle.h"
 
-
 class MyGame : public GameClass	{
 public:
 	MyGame();
@@ -77,4 +76,10 @@ protected:
 	
 	GameEntity* quadEntity;
 	GameEntity* player;
+
+	int *activedPlayers;
+
+	float time;
+	int gameState;
+
 };

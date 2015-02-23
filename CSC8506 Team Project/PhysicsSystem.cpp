@@ -44,7 +44,7 @@ void	PhysicsSystem::NarrowPhaseCollisions() {
 	for (unsigned int i = 0; i < allNodes.size(); i++) {
 		//left -> terrain collision
 		if (allNodes[i]->GetCollisionVolume() && allNodes[i]->GetCollisionVolume()->GetType() == COLLISION_SPHERE) 
-			CollisionHelper::HeightMapCollision(hm->GetVertices(), hm->GetNormals(),*allNodes[i]);
+			//CollisionHelper::HeightMapCollision(hm->GetVertices(), hm->GetNormals(),*allNodes[i]);
 
 		//for all left children
 		for (unsigned int j = 0; j < allNodes[i]->children.size(); ++j) {

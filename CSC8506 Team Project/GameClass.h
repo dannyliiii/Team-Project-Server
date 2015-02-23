@@ -35,6 +35,11 @@ _-_-_-_-_-_-_-""  ""
 #define PHYSICS_HZ	120
 #define PHYSICS_TIMESTEP (1000.0f / (float)PHYSICS_HZ)
 
+enum GameState{
+	waiting,
+	started,
+	finished
+};
 
 enum UserInputs{
 	KEY_UP = 0,
@@ -84,5 +89,7 @@ protected:
 	Packet recvPacket;
 	Packet sendPacket;
 	char network_data[MAX_PACKET_SIZE];
+
+	static map<int, GameEntity*> players;
 };
 

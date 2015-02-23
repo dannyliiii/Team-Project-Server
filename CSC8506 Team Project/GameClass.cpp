@@ -2,6 +2,7 @@
 
 GameClass* GameClass::instance = NULL;
 unsigned int GameClass::client_id;
+map<int, GameEntity*> GameClass::players;
 
 
 GameClass::GameClass()	{
@@ -78,7 +79,7 @@ void GameClass::UpdateNetwork()
 
 void GameClass::ReceiveFromClients()
 {
-
+	map<int, GameEntity*>::iterator player_iter;
 	// go through all clients
 	std::map<unsigned int, SOCKET>::iterator iter;
 	for (iter = network->sessions.begin(); iter != network->sessions.end(); iter++)
@@ -122,7 +123,7 @@ void GameClass::ReceiveFromClients()
 						switch (i){
 						case KEY_I:
 							cout << "Receive user input " << i << endl;
-							sendPacket.positon[iter->first] += Vector3(0, 10, 0);
+							players[iter->first]->GetPhysicsNode().SetLinearVelocity(players[iter->first]->GetPhysicsNode().GetLinearVelocity() + Vector3(0,1,0));
 							break;
 						default:
 							break;
@@ -131,6 +132,10 @@ void GameClass::ReceiveFromClients()
 				}
 
 				sendPacket.numberOfPlayers = network->numberOfPlayer;
+
+				for (player_iter = players.begin(); player_iter != players.end(); player_iter++){
+					sendPacket.positon[iter->first] = player_iter->second->GetPhysicsNode().GetPosition();
+				}	
 				SendActionPackets();
 				break;
 
@@ -175,10 +180,10 @@ void GameClass::SendInitPacket(int clientNumber){
 	//closesocket(currentSocket);
 	
 	while (iSendResult == SOCKET_ERROR){
-		printf("send init packet failed with error: %d\n", WSAGetLastError());
+		//printf("send init packet failed with error: %d\n", WSAGetLastError());
 		iSendResult = NetworkServices::sendMessage(currentSocket, packet_data, packet_size);
 	}
 
-	printf("send init packet success.");
+	printf("send init packet success.\n");
 
 }
