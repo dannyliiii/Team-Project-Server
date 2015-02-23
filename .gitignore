@@ -43,6 +43,7 @@ Temporary Items
 .apdisk
 *.tlog
 *.tlog
+Team-Project-Server/Debug/
 Debug/
 Debug/Team Project Server.exe
 Debug/Team Project Server.exe
