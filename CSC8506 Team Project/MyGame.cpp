@@ -208,13 +208,15 @@ void MyGame::UpdateGame(float msec) {
 Makes a cube. Every game has a crate in it somewhere!
 */
 GameEntity* MyGame::BuildCubeEntity(float size) {
-	GameEntity*g = new GameEntity(new SceneNode(cube), new PhysicsNode());
+	//GameEntity*g = new GameEntity(new SceneNode(cube), new PhysicsNode());
+	GameEntity*g = new GameEntity(new PhysicsNode());
+
 	g->ConnectToSystems();
 
-	SceneNode &test = g->GetRenderNode();
+	//SceneNode &test = g->GetRenderNode();
 
-	test.SetModelScale(Vector3(size, size, size));
-	test.SetBoundingRadius(size);
+	/*test.SetModelScale(Vector3(size, size, size));
+	test.SetBoundingRadius(size);*/
 	PhysicsNode& p = g->GetPhysicsNode();
 	p.SetInverseInertia(InertialMatrixHelper::createCuboidInvInertial(1.0f/10.0f, size, size, size));
 	p.SetInverseMass(1.0f / 10.0f);
@@ -228,12 +230,12 @@ GameEntity* MyGame::BuildCubeEntity(float size) {
 Makes a sphere.
 */
 GameEntity* MyGame::BuildSphereEntity(float radius, Vector3 pos, Vector3 vel) {
-	SceneNode* s = new SceneNode(sphere);
+	/*SceneNode* s = new SceneNode(sphere);
 	s->SetMaterial(checkboardMaterial);
 
 	s->SetModelScale(Vector3(radius, radius, radius));
 	s->SetBoundingRadius(radius);
-	s->SetColour(Vector4(0.2f, 0.2f, 0.5f, 1.0f));
+	s->SetColour(Vector4(0.2f, 0.2f, 0.5f, 1.0f));*/
 	PhysicsNode*p = new PhysicsNode();
 	p->SetPosition(pos);
 	p->SetLinearVelocity(vel);
@@ -252,12 +254,12 @@ Makes a flat quad, initially oriented such that we can use it as a simple
 floor.
 */
 GameEntity* MyGame::BuildQuadEntity(float size) {
-	SceneNode* s = new SceneNode(quad);
-	s->SetMaterial(checkSmileyMaterial);
+	//SceneNode* s = new SceneNode(quad);
+	//s->SetMaterial(checkSmileyMaterial);
 
-	s->SetModelScale(Vector3(size, size, size));
-	//Oh if only we had a set texture function...we could make our brick floor again WINK WINK
-	s->SetBoundingRadius(size);
+	//s->SetModelScale(Vector3(size, size, size));
+	////Oh if only we had a set texture function...we could make our brick floor again WINK WINK
+	//s->SetBoundingRadius(size);
 
 	PhysicsNode*p = new PhysicsNode(Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), 90.0f), Vector3());
 	p->SetUseGravity(false);
@@ -265,7 +267,7 @@ GameEntity* MyGame::BuildQuadEntity(float size) {
 	p->SetInverseInertia(InertialMatrixHelper::createImmovableInvInertial());
 	p->SetCollisionVolume(new CollisionPlane(Vector3(0,0,0), Vector3(0, 1, 0), 0));
 	p->SetLinearVelocity(Vector3(0,0,0));
-	GameEntity*g = new GameEntity(s, p);
+	GameEntity*g = new GameEntity(p);
 	g->ConnectToSystems();
 	return g;
 }

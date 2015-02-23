@@ -25,7 +25,6 @@ _-_-_-_-_-_-_-""  ""
 #include "../nclgl/NetworkData.h"
 #include "../nclgl/ServerNetwork.h"
 
-//#include "Renderer.h"
 #include "PhysicsSystem.h"
 #include "GameEntity.h"
 
@@ -56,7 +55,6 @@ public:
 	~GameClass(void);
 
 	virtual void UpdatePhysics(float msec);
-	//virtual void UpdateRendering(float msec);
 	virtual void UpdateGame(float msec) = 0;
 
 	static GameClass& GetGameClass() { return *instance; }

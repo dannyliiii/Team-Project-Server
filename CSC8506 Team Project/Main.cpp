@@ -26,10 +26,8 @@ _-_-_-_-_-_-_-|   /\_/\   NYANYANYAN
 _-_-_-_-_-_-_-""  ""
 
 *//////////////////////////////////////////////////////////////////////////////
-//#include "../nclgl/ClientGame.h"
 #include "MyGame.h"
 #include <thread>
-//#include "Window.h"
 #include <ctime>
 #pragma comment(lib, "nclgl.lib")
 
@@ -56,38 +54,24 @@ void physicsLoop(GameClass* game, bool& running) {
 
 int main() {
 
-	/*if (!Window::Initialise("csc508", 800, 600, false)) {
-		return Quit(true, "Window failed to initialise!");
-	}*/
-
-	/*if (!Renderer::Initialise()) {
-		return Quit(true, "Renderer failed to initialise!");
-	}*/
-
 	PhysicsSystem::Initialise();
 
 	MyGame* game = new MyGame();
-
-	/*Window::GetWindow().LockMouseToWindow(true);
-	Window::GetWindow().ShowOSPointer(false);*/
 
 	bool running = true;
 	std::thread physics(physicsLoop, game, std::ref(running));
 
 	GameTimer timer;
-	//while (Window::GetWindow().UpdateWindow() && !Window::GetKeyboard()->KeyDown(KEYBOARD_ESCAPE)){
+
 	while (true){
-		//float msec = Window::GetWindow().GetTimer()->GetTimedMS();	//How many milliseconds since last update?
-		
 		float msec = timer.GetTimedMS();
-		game->UpdateGame(msec);	//Update our game logic
+		game->UpdateGame(msec);	
 		game->UpdateNetwork();
-		
 	}
 	running = false;
 	physics.join();
 
-	delete game;	//Done with our game now...bye bye!
+	delete game;
 	return Quit();
 }
 

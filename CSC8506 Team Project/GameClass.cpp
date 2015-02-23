@@ -48,17 +48,6 @@ void GameClass::UpdatePhysics(float msec) {
 	}
 }
 
-//void GameClass::UpdateRendering(float msec) {
-//	renderCounter -= msec;
-//
-//	if (renderCounter <= 0.0f) {	//Update our rendering logic
-//		Renderer::GetRenderer().UpdateScene(1000.0f / (float)RENDER_HZ);
-//		Renderer::GetRenderer().RenderScene();
-//		renderCounter += (1000.0f / (float)RENDER_HZ);
-//	}
-//}
-
-
 void GameClass::UpdateNetwork()
 {
 	// get new clients
@@ -93,8 +82,8 @@ void GameClass::ReceiveFromClients()
 		}
 
 		int i = 0;
-		/*while (i < (unsigned int)data_length)
-		{*/
+		while (i < (unsigned int)data_length)
+		{
 			recvPacket.deserialize(&(network_data[i]));
 			i += sizeof(Packet);
 
@@ -105,12 +94,9 @@ void GameClass::ReceiveFromClients()
 				sendPacket.activedPlayers[iter->first] = 1;
 				sendPacket.packet_type = INIT_CONNECTION;
 				sendPacket.clientNumber = iter->first;
-				//init position of spaceship
-				sendPacket.positon[iter->first] = Vector3(rand()%1000, 0, 0);
 				printf("server received init packet from client\n");
 
-				SendInitPacket(sendPacket.clientNumber);
-
+				SendInitPacket(iter->first);
 				break;
 
 			case ACTION_EVENT:
@@ -118,6 +104,7 @@ void GameClass::ReceiveFromClients()
 				sendPacket.packet_type = ACTION_EVENT;
 				sendPacket.trackSeed = rand() % RAND_MAX;
 
+				//resolve user input
 				for (int i = 0; i < NUMBER_OF_INPUT; i++){
 					if (recvPacket.inputs[i] == 1){
 						switch (i){
@@ -131,8 +118,6 @@ void GameClass::ReceiveFromClients()
 					}
 				}
 
-				sendPacket.numberOfPlayers = network->numberOfPlayer;
-
 				for (player_iter = players.begin(); player_iter != players.end(); player_iter++){
 					sendPacket.positon[iter->first] = player_iter->second->GetPhysicsNode().GetPosition();
 				}	
@@ -145,7 +130,7 @@ void GameClass::ReceiveFromClients()
 
 				break;
 			}
-		//}
+		}
 	}
 }
 

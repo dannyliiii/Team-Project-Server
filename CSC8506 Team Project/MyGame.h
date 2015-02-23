@@ -35,7 +35,6 @@ _-_-_-_-_-_-_-""  ""
 
 #include "GameEntity.h"
 #include "GameClass.h"
-//#include "Camera.h"
 #include "Material.h"
 
 #include "Track.h"
