@@ -167,7 +167,7 @@ void ServerNetwork::sendToAll(char * packets, int totalSize)
 
         if (iSendResult!= 10035 && iSendResult == SOCKET_ERROR) 
         {
-            printf("send failed with error: %d\n", WSAGetLastError());
+            printf("send action packet failed with error: %d\n", WSAGetLastError());
             //closesocket(currentSocket);
         }
     }
