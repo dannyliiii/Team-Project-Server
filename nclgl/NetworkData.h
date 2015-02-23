@@ -32,6 +32,7 @@ struct Packet {
 	int inputs[NUMBER_OF_INPUT];
 	int gameStart; // 0:before start 1:start 2:playing  3:finished
 	unsigned int trackSeed;
+	int activedPlayers[MAX_PLAYER_NUMBER];
 
     void serialize(char * data) {
         memcpy(data, this, sizeof(Packet));

@@ -14,6 +14,10 @@ GameClass::GameClass()	{
 	network = new ServerNetwork();
 
 	client_id = 0;
+
+	for (int i = 0; i < MAX_PLAYER_NUMBER; i++){
+		sendPacket.activedPlayers[i] = 0;
+	}
 }
 
 GameClass::~GameClass(void)	{
@@ -67,6 +71,7 @@ void GameClass::UpdateNetwork()
 	ReceiveFromClients();
 	if (network->rc){
 		client_id = network->findClientId();
+		sendPacket.activedPlayers[client_id] = 0;
 		network->removeClient();
 	}
 }
@@ -96,6 +101,7 @@ void GameClass::ReceiveFromClients()
 
 			case INIT_CONNECTION:
 
+				sendPacket.activedPlayers[iter->first] = 1;
 				sendPacket.packet_type = INIT_CONNECTION;
 				sendPacket.clientNumber = iter->first;
 				//init position of spaceship
