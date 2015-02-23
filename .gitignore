@@ -74,3 +74,8 @@ nclgl/Debug
 *.tlog
 *.tlog
 CSC8506 Team Project/Debug/CL.read.1.tlog
+
+[Dd]ebug/
+[Rr]elease/
+!Dependencies/GLEW/lib/*
+!Dependencies/SOIL/*
