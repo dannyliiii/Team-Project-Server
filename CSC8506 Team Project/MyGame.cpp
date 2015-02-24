@@ -22,8 +22,8 @@ MyGame::MyGame():
 		activedPlayers[i] = 0;
 	}
 
-	time = 0;
-	gameState = waiting;
+	time = 1500;
+	gameState = standby;
 	
 }
 
@@ -44,12 +44,21 @@ logic will be added to this function.
 */
 void MyGame::UpdateGame(float msec) {
 
+	//Server logic
 	switch (gameState){
+	case standby:
+		if ()
+		break;
 	case waiting:
+		time -= msec;
+		if (time <= 0){
+			gameState = started;
+			break;
+		}
 		for (int i = 0; i < MAX_PLAYER_NUMBER; i++){
 			if (sendPacket.activedPlayers[i] == 1 && activedPlayers[i] == 0){
 				GameEntity* e = BuildSphereEntity(50.0, Vector3(0, 0, 0), Vector3(0, 0, 0));
-				Vector3 vel(0, 0, -10);
+				Vector3 vel(0, 0, -1);
 				e->GetPhysicsNode().SetLinearVelocity(vel);
 				e->GetPhysicsNode().SetPosition(Vector3(rand() % 1000, 1000, 0));
 				e->GetPhysicsNode().SetAngularVelocity(vel*0.005f);
@@ -59,6 +68,7 @@ void MyGame::UpdateGame(float msec) {
 				players.insert(pair<int, GameEntity*>(i, e));
 				activedPlayers[i] = 1;
 				cout << "Create player " << i << endl;
+				time = 1500;
 			}
 			else if (sendPacket.activedPlayers[i] == 0 && activedPlayers[i] == 1){
 				delete players.find(i)->second;

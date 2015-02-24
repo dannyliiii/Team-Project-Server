@@ -2,6 +2,7 @@
 #include <string.h>
 #include "Vector3.h"
 #include <vector>
+#include "Quaternion.h"
 
 #define MAX_PACKET_SIZE 1000000
 #define MAX_PLAYER_NUMBER 10
@@ -29,6 +30,8 @@ struct Packet {
 	int numberOfPlayers;
 	int clientNumber;
 	Vector3 positon[MAX_PLAYER_NUMBER];
+	Quaternion rotation[MAX_PLAYER_NUMBER];
+
 	int inputs[NUMBER_OF_INPUT];
 	unsigned int trackSeed;
 	int activedPlayers[MAX_PLAYER_NUMBER];

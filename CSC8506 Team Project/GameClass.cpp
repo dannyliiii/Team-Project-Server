@@ -165,7 +165,7 @@ void GameClass::SendInitPacket(int clientNumber){
 	//closesocket(currentSocket);
 	
 	while (iSendResult == SOCKET_ERROR){
-		//printf("send init packet failed with error: %d\n", WSAGetLastError());
+		printf("send init packet failed with error: %d\n", WSAGetLastError());
 		iSendResult = NetworkServices::sendMessage(currentSocket, packet_data, packet_size);
 	}
 

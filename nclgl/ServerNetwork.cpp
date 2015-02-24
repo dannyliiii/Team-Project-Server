@@ -58,7 +58,7 @@ ServerNetwork::ServerNetwork(void)
         exit(1);
     }
 
-    u_long iMode = 1; // change to 0 to enable blocking
+    u_long iMode = 1; // 1.nonblocking, 0. blocking
 	
     iResult = ioctlsocket(ListenSocket, FIONBIO, &iMode);
 
@@ -167,7 +167,7 @@ void ServerNetwork::sendToAll(char * packets, int totalSize)
 
         if (iSendResult!= 10035 && iSendResult == SOCKET_ERROR) 
         {
-            //printf("send action packet failed with error: %d\n", WSAGetLastError());
+            printf("send action packet failed with error: %d\n", WSAGetLastError());
             //closesocket(currentSocket);
         }
     }

@@ -35,6 +35,7 @@ _-_-_-_-_-_-_-""  ""
 #define PHYSICS_TIMESTEP (1000.0f / (float)PHYSICS_HZ)
 
 enum GameState{
+	standby,
 	waiting,
 	started,
 	finished
