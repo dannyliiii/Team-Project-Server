@@ -1,4 +1,103 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (CSC8506 Team Project.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  MyGame.cpp
-d:\gameserver\team-project-server\csc8506 team project\mygame.cpp(54): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-  CSC8506 Team Project.vcxproj -> D:\GameServer\Team-Project-Server\Debug\Team Project Server.exe
+﻿Build started 01/03/2015 16:03:29.
+     1>Project "C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\CSC8506 Team Project\CSC8506 Team Project.vcxproj" on node 2 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\Debug\Team Project Server.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\Debug\Team Project Server.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\Debug\Team Project Server.lib" /MACHINE:X86 Debug\CollisionHelper.obj
+         Debug\Framebuffer.obj
+         Debug\GameClass.obj
+         Debug\GameEntity.obj
+         Debug\GInterface.obj
+         Debug\Main.obj
+         Debug\Material.obj
+         Debug\MyGame.obj
+         Debug\Obstacle.obj
+         Debug\ParticleEmitter.obj
+         Debug\PhysicsNode.obj
+         Debug\PhysicsSystem.obj
+         Debug\Renderer.obj
+         Debug\ParticleSceneNode.obj
+         Debug\TrackChunks.obj
+         Debug\TrackGenerator.obj
+         Debug\TrackRenderer.obj
+         Debug\TrackSettings.obj
+         Debug\TrackSpline.obj
+         Debug\TrackSplineMesh.obj
+         Debug\Spring.obj
+         Debug\Texture.obj
+         Debug\Track.obj
+         Debug\TrackChunkMesh.obj
+         Debug\TrackHeightGenMesh.obj
+         Debug\TrackChunkSceneNode.obj
+         Debug\TrackSplineSceneNode.obj
+     1>GameClass.obj : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>Main.obj : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>MyGame.obj : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>Renderer.obj : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>msvcprtd.lib(newaop_s.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>msvcprtd.lib(locale0_implib.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(Matrix4.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(Quaternion.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(ServerNetwork.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(SceneNode.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(Window.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(OGLRenderer.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(Mesh.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(OBJMesh.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(Shader.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(Camera.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(Frustum.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(TextMesh.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(Mouse.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>nclgl.lib(Plane.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1800' in CollisionHelper.obj
+     1>TrackRenderer.obj : warning LNK4217: locally defined symbol ___glewActiveTexture imported in function "public: __thiscall TrackRenderer::TrackRenderer(class TrackSettings const &,class TrackChunks const &,class TrackSpline const &)" (??0TrackRenderer@@QAE@ABVTrackSettings@@ABVTrackChunks@@ABVTrackSpline@@@Z)
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewActiveTexture imported
+     1>ParticleEmitter.obj : warning LNK4049: locally defined symbol ___glewActiveTexture imported
+     1>Renderer.obj : warning LNK4049: locally defined symbol ___glewActiveTexture imported
+     1>TrackChunks.obj : warning LNK4049: locally defined symbol ___glewActiveTexture imported
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewGetUniformLocation imported
+     1>ParticleSceneNode.obj : warning LNK4049: locally defined symbol ___glewGetUniformLocation imported
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewUniform1f imported
+     1>ParticleSceneNode.obj : warning LNK4049: locally defined symbol ___glewUniform1f imported
+     1>TrackGenerator.obj : warning LNK4049: locally defined symbol ___glewUniform1f imported
+     1>TrackRenderer.obj : warning LNK4049: locally defined symbol ___glewUniform1f imported
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewUniform1i imported
+     1>ParticleSceneNode.obj : warning LNK4049: locally defined symbol ___glewUniform1i imported
+     1>TrackRenderer.obj : warning LNK4049: locally defined symbol ___glewUniform1i imported
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewUniform2f imported
+     1>TrackGenerator.obj : warning LNK4049: locally defined symbol ___glewUniform2f imported
+     1>TrackRenderer.obj : warning LNK4049: locally defined symbol ___glewUniform2f imported
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewUniform3fv imported
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewUniform4fv imported
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewUniformMatrix4fv imported
+     1>TrackGenerator.obj : warning LNK4049: locally defined symbol ___glewUniformMatrix4fv imported
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewUseProgram imported
+     1>Renderer.obj : warning LNK4049: locally defined symbol ___glewUseProgram imported
+     1>TrackGenerator.obj : warning LNK4049: locally defined symbol ___glewUseProgram imported
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewBindFramebuffer imported
+     1>Renderer.obj : warning LNK4049: locally defined symbol ___glewBindFramebuffer imported
+     1>TrackGenerator.obj : warning LNK4049: locally defined symbol ___glewBindFramebuffer imported
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewFramebufferTexture2D imported
+     1>GInterface.obj : warning LNK4049: locally defined symbol ___glewGenFramebuffers imported
+     1>TrackGenerator.obj : warning LNK4049: locally defined symbol ___glewGenFramebuffers imported
+     1>ParticleEmitter.obj : warning LNK4049: locally defined symbol ___glewBindBuffer imported
+     1>ParticleEmitter.obj : warning LNK4049: locally defined symbol ___glewBufferData imported
+     1>ParticleEmitter.obj : warning LNK4049: locally defined symbol ___glewBufferSubData imported
+     1>ParticleEmitter.obj : warning LNK4049: locally defined symbol ___glewDeleteBuffers imported
+     1>ParticleEmitter.obj : warning LNK4049: locally defined symbol ___glewGenBuffers imported
+     1>ParticleEmitter.obj : warning LNK4049: locally defined symbol ___glewEnableVertexAttribArray imported
+     1>ParticleEmitter.obj : warning LNK4049: locally defined symbol ___glewVertexAttribPointer imported
+     1>ParticleEmitter.obj : warning LNK4049: locally defined symbol ___glewBindVertexArray imported
+     1>TrackSplineMesh.obj : warning LNK4049: locally defined symbol ___glewBindVertexArray imported
+     1>TrackChunkMesh.obj : warning LNK4049: locally defined symbol ___glewBindVertexArray imported
+     1>TrackHeightGenMesh.obj : warning LNK4049: locally defined symbol ___glewBindVertexArray imported
+     1>TrackGenerator.obj : warning LNK4049: locally defined symbol ___glewFramebufferTexture imported
+     1>TrackGenerator.obj : warning LNK4049: locally defined symbol ___glewDeleteFramebuffers imported
+     1>TrackRenderer.obj : warning LNK4049: locally defined symbol ___glewUniform3f imported
+     1>TrackGenerator.obj : error LNK2019: unresolved external symbol __ftoui3 referenced in function "private: void __thiscall TrackGenerator::RegenerateChunk(unsigned int)" (?RegenerateChunk@TrackGenerator@@AAEXI@Z)
+     1>TrackSpline.obj : error LNK2001: unresolved external symbol __ftoui3
+     1>C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\Debug\Team Project Server.exe : fatal error LNK1120: 1 unresolved externals
+     1>Done Building Project "C:\Users\Phoebe\Documents\GitHub\Team-Project-Server\CSC8506 Team Project\CSC8506 Team Project.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.32
