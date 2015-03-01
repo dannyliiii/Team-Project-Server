@@ -19,6 +19,10 @@ GameClass::GameClass()	{
 	for (int i = 0; i < MAX_PLAYER_NUMBER; i++){
 		sendPacket.activedPlayers[i] = 0;
 	}
+
+	trackSeed = rand()% RAND_MAX;
+
+	gameID = 0;
 }
 
 GameClass::~GameClass(void)	{
@@ -91,9 +95,15 @@ void GameClass::ReceiveFromClients()
 
 			case INIT_CONNECTION:
 
+				if(gameState != waiting){
+					break;
+				}
+
 				sendPacket.activedPlayers[iter->first] = 1;
 				sendPacket.packet_type = INIT_CONNECTION;
 				sendPacket.clientNumber = iter->first;
+				sendPacket.trackSeed = trackSeed;
+
 				printf("server received init packet from client\n");
 
 				SendInitPacket(iter->first);
@@ -102,7 +112,6 @@ void GameClass::ReceiveFromClients()
 			case ACTION_EVENT:
 
 				sendPacket.packet_type = ACTION_EVENT;
-				sendPacket.trackSeed = rand() % RAND_MAX;
 
 				//resolve user input
 				for (int i = 0; i < NUMBER_OF_INPUT; i++){
@@ -127,7 +136,6 @@ void GameClass::ReceiveFromClients()
 			default:
 
 				printf("error in packet types\n");
-
 				break;
 			}
 		}
@@ -171,4 +179,14 @@ void GameClass::SendInitPacket(int clientNumber){
 
 	printf("send init packet success.\n");
 
+}
+
+void GameClass::DisconnectAllCients(){
+	std::map<unsigned int, SOCKET>::iterator iter;
+	for(iter = ServerNetwork::sessions.begin(); iter != ServerNetwork::sessions.end(); iter++){
+		closesocket(iter->second);
+	}
+	ServerNetwork::sessions.clear();
+
+	players.clear();
 }

@@ -39,7 +39,7 @@ _-_-_-_-_-_-_-""  ""
 
 #include "Track.h"
 #include "Obstacle.h"
-
+#define timeCounter 1500.f
 class MyGame : public GameClass	{
 public:
 	MyGame();
@@ -48,6 +48,12 @@ public:
 	virtual void UpdateGame(float msec);
 
 protected:
+
+	void CheckPlayers();
+	
+	void ResetGame();
+
+	void CountTime(float msec);
 
 	GameEntity* BuildCubeEntity(float size);
 
@@ -77,8 +83,7 @@ protected:
 	GameEntity* player;
 
 	int *activedPlayers;
-
+	int numOfPlayers;
 	float time;
-	int gameState;
-
+	
 };

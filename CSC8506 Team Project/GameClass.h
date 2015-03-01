@@ -35,9 +35,8 @@ _-_-_-_-_-_-_-""  ""
 #define PHYSICS_TIMESTEP (1000.0f / (float)PHYSICS_HZ)
 
 enum GameState{
-	standby,
 	waiting,
-	started,
+	start,
 	finished
 };
 
@@ -69,6 +68,8 @@ public:
 
 	void SendInitPacket(int clientNumber);
 
+	void DisconnectAllCients();
+
 	// IDs for the clients connecting for table in ServerNetwork 
 	static unsigned int client_id;
 
@@ -90,5 +91,9 @@ protected:
 	char network_data[MAX_PACKET_SIZE];
 
 	static map<int, GameEntity*> players;
+
+	unsigned int trackSeed;
+	unsigned int gameID;
+	int gameState;
 };
 

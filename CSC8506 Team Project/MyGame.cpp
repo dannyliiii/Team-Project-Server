@@ -22,9 +22,10 @@ MyGame::MyGame():
 		activedPlayers[i] = 0;
 	}
 
-	time = 1500;
-	gameState = standby;
-	
+	time = timeCounter;
+	gameState = waiting;
+	sendPacket.gameState = gameState;
+	numOfPlayers = 0;
 }
 
 MyGame::~MyGame(void)	{
@@ -46,46 +47,22 @@ void MyGame::UpdateGame(float msec) {
 
 	//Server logic
 	switch (gameState){
-	case standby:
-		if ()
-		break;
 	case waiting:
-		time -= msec;
-		if (time <= 0){
-			gameState = started;
-			break;
-		}
-		for (int i = 0; i < MAX_PLAYER_NUMBER; i++){
-			if (sendPacket.activedPlayers[i] == 1 && activedPlayers[i] == 0){
-				GameEntity* e = BuildSphereEntity(50.0, Vector3(0, 0, 0), Vector3(0, 0, 0));
-				Vector3 vel(0, 0, -1);
-				e->GetPhysicsNode().SetLinearVelocity(vel);
-				e->GetPhysicsNode().SetPosition(Vector3(rand() % 1000, 1000, 0));
-				e->GetPhysicsNode().SetAngularVelocity(vel*0.005f);
-				e->GetPhysicsNode().SetInverseMass(1.0f / 1.0f);
-				e->GetPhysicsNode().SetInverseInertia(InertialMatrixHelper::createSphereInvInertial(1.0f / 10.0f, 100.0f));
-				allEntities.push_back(e);
-				players.insert(pair<int, GameEntity*>(i, e));
-				activedPlayers[i] = 1;
-				cout << "Create player " << i << endl;
-				time = 1500;
-			}
-			else if (sendPacket.activedPlayers[i] == 0 && activedPlayers[i] == 1){
-				delete players.find(i)->second;
-				players.erase(i);
-				activedPlayers[i] = 0;
-				cout << "Remove player " << i << endl;
-			}
-			else{
-				continue;
-			}
-		}
+		//check player (dis)connection
+		CheckPlayers();
+		//count time if needed, game starts if time <= 0
+		CountTime(msec);
 		break;
-	case started:
+	case start:
+		//TODO: check player states, control game flow.
+		sendPacket.gameState = start;
 		break;
 	case finished:
+		//reset game variables, disconnect clients if game finished
+		ResetGame();
 		break;
 	default:
+		cout << "Unexpected state in MyGame->Update()! " << endl;
 		break;
 	}
 	
@@ -207,11 +184,6 @@ void MyGame::UpdateGame(float msec) {
 	//	theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, -15));
 	//}
 
-	//if (Window::GetKeyboard()->KeyTriggered(KEYBOARD_Y)) {
-	//	track.Advance();
-	//	std::cout << "Track Extents: " << track.GetLowerBound() << " " << track.GetUpperBound() << std::endl;
-	//}
-
 }
 
 /*
@@ -280,4 +252,57 @@ GameEntity* MyGame::BuildQuadEntity(float size) {
 	GameEntity*g = new GameEntity(p);
 	g->ConnectToSystems();
 	return g;
+}
+
+void MyGame::CheckPlayers(){
+	for (int i = 0; i < MAX_PLAYER_NUMBER; i++){
+			if (sendPacket.activedPlayers[i] == 1 && activedPlayers[i] == 0){
+				GameEntity* e = BuildSphereEntity(50.0, Vector3(0, 0, 0), Vector3(0, 0, 0));
+				Vector3 vel(0, 0, -1);
+				e->GetPhysicsNode().SetLinearVelocity(vel);
+				e->GetPhysicsNode().SetPosition(Vector3(rand() % 1000, 1000, 0));
+				e->GetPhysicsNode().SetAngularVelocity(vel*0.005f);
+				e->GetPhysicsNode().SetInverseMass(1.0f / 1.0f);
+				e->GetPhysicsNode().SetInverseInertia(InertialMatrixHelper::createSphereInvInertial(1.0f / 10.0f, 100.0f));
+				allEntities.push_back(e);
+				players.insert(pair<int, GameEntity*>(i, e));
+				activedPlayers[i] = 1;
+				cout << "Create player " << i << endl;
+				time = timeCounter;
+			}
+			else if (sendPacket.activedPlayers[i] == 0 && activedPlayers[i] == 1){
+				delete players.find(i)->second;
+				players.erase(i);
+				activedPlayers[i] = 0;
+				cout << "Remove player " << i << endl;
+				time = timeCounter;
+			}
+			else{
+				continue;
+			}
+		}
+}
+
+void MyGame::ResetGame(){
+	activedPlayers = new int[MAX_PLAYER_NUMBER];
+
+	for (int i = 0; i < MAX_PLAYER_NUMBER; i++){
+		activedPlayers[i] = 0;
+	}
+
+	time = timeCounter;
+	numOfPlayers = 0;
+	gameID++;
+	trackSeed = rand()%RAND_MAX;
+	DisconnectAllCients();
+	sendPacket.gameState = waiting;
+}
+
+void MyGame::CountTime(float msec){
+	if(numOfPlayers != 0){
+			time -= msec;
+		}
+	if (time <= 0){
+		gameState = start;
+	}
 }
