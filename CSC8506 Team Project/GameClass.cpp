@@ -37,7 +37,6 @@ GameClass::~GameClass(void)	{
 
 void GameClass::UpdatePhysics(float msec) {
 	
-
 	physicsCounter += msec;
 	elapsed += msec; //for our framerate
 	while (physicsCounter >= 0.0f) {

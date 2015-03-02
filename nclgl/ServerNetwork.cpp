@@ -1,9 +1,10 @@
 #include "StdAfx.h"
 #include "ServerNetwork.h"
 
+//#include "../CSC8506 Team Project/GameClass.h"
+
 std::map<unsigned int, SOCKET> ServerNetwork::sessions;
 std::map<int, bool> ServerNetwork::idArray;
-
 
 ServerNetwork::ServerNetwork(void)
 {

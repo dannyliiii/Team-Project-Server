@@ -97,6 +97,5 @@ protected:
 	unsigned int gameID;
 	int gameState;
 
-
 };
 
