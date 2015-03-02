@@ -6,7 +6,7 @@
 
 #define MAX_PACKET_SIZE 1000000
 #define MAX_PLAYER_NUMBER 10
-#define NUMBER_OF_INPUT 15
+#define NUMBER_OF_INPUT 10
 
 using namespace std;
 

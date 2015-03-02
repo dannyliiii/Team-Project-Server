@@ -63,6 +63,8 @@ protected:
 
 	GameEntity* BuildSoundEntity();
 
+	void tempSpaceshipControl(GameEntity* player);
+
 	Material* checkboardMaterial;
 	Material* smileyMaterial;
 	Material* checkSmileyMaterial;

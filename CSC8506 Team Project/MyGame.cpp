@@ -85,99 +85,7 @@ void MyGame::UpdateGame(float msec) {
 
 	//////////////////////////////////////Spaceship Movements
 
-	//move forward
-	//if (Window::GetKeyboard()->KeyHeld(KEYBOARD_UP)) {
-	//	theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, -3));
-	//}
-	//else if (!Window::GetKeyboard()->KeyHeld(KEYBOARD_UP)) {
-	//	theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, 0));
-	//}
-
-	////move back
-	//if (Window::GetKeyboard()->KeyHeld(KEYBOARD_DOWN)) {
-	//	theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, 3));
-	//}
-
-	////move left
-	//if (Window::GetKeyboard()->KeyHeld(KEYBOARD_LEFT) && roll > -10.0f) {
-	//	if (Window::GetKeyboard()->KeyHeld(KEYBOARD_UP) && roll > -10.0f) {
-	//		roll -= 1.0f;
-	//		theCube->GetPhysicsNode().SetLinearVelocity(Vector3(-3, 0, -3));
-	//		Quaternion rotation3 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), -1.0f);
-	//		Quaternion currentRotation3 = theCube->GetPhysicsNode().GetOrientation();
-	//		theCube->GetPhysicsNode().SetOrientation(currentRotation3 * rotation3);
-	//	}
-	//	else if (Window::GetKeyboard()->KeyHeld(KEYBOARD_DOWN) && roll > -10.0f) {
-	//		roll -= 1.0f;
-	//		theCube->GetPhysicsNode().SetLinearVelocity(Vector3(-3, 0, 0));
-	//		Quaternion rotation4 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), -1.0f);
-	//		Quaternion currentRotation4 = theCube->GetPhysicsNode().GetOrientation();
-	//		theCube->GetPhysicsNode().SetOrientation(currentRotation4 * rotation4);
-	//	}
-	//	else if (!Window::GetKeyboard()->KeyHeld(KEYBOARD_LEFT)) {
-	//		Quaternion rotation4 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), 0.0f);
-	//		Quaternion currentRotation4 = theCube->GetPhysicsNode().GetOrientation();
-	//		theCube->GetPhysicsNode().SetOrientation(currentRotation4 * rotation4);
-	//	}
-	//	else {
-	//		roll -= 1.0f;
-	//		theCube->GetPhysicsNode().SetLinearVelocity(Vector3(-3, 0, 0));
-	//		Quaternion rotation = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), -1.0f);
-	//		Quaternion currentRotation = theCube->GetPhysicsNode().GetOrientation();
-	//		theCube->GetPhysicsNode().SetOrientation(currentRotation * rotation);
-	//	}
-	//}
-	//
-
-	////move right
-	//if (Window::GetKeyboard()->KeyHeld(KEYBOARD_RIGHT) && roll < 10.0f) {
-	//	if (Window::GetKeyboard()->KeyHeld(KEYBOARD_UP) && roll < 10.0f) {
-	//		roll += 1.0f;
-	//		theCube->GetPhysicsNode().SetLinearVelocity(Vector3(3, 0, -3));
-	//		Quaternion rotation4 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), 1.0f);
-	//		Quaternion currentRotation4 = theCube->GetPhysicsNode().GetOrientation();
-	//		theCube->GetPhysicsNode().SetOrientation(currentRotation4 * rotation4);
-	//	}
-	//	else if (Window::GetKeyboard()->KeyHeld(KEYBOARD_DOWN) && roll < 10.0f) {
-	//		roll += 1.0f;
-	//		theCube->GetPhysicsNode().SetLinearVelocity(Vector3(3, 0, 0));
-	//		Quaternion rotation4 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), 1.0f);
-	//		Quaternion currentRotation4 = theCube->GetPhysicsNode().GetOrientation();
-	//		theCube->GetPhysicsNode().SetOrientation(currentRotation4 * rotation4);
-	//	}
-	//	else {
-	//		roll += 1.f;
-	//		theCube->GetPhysicsNode().SetLinearVelocity(Vector3(3, 0, 0));
-	//		Quaternion rotation2 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), 1.0f);
-	//		Quaternion currentRotation2 = theCube->GetPhysicsNode().GetOrientation();
-	//		theCube->GetPhysicsNode().SetOrientation(currentRotation2 * rotation2);
-	//	}
-	//}
-
-
-	////Barrel Roll
-	//if (Window::GetKeyboard()->KeyHeld(KEYBOARD_B)) {
-	//	theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, -3));
-	//	Quaternion rotation = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), 10.0f);
-	//	Quaternion currentRotation = theCube->GetPhysicsNode().GetOrientation();
-	//	theCube->GetPhysicsNode().SetOrientation(currentRotation * rotation);
-	//}
-
-	////jump
-	//if (Window::GetKeyboard()->KeyHeld(KEYBOARD_P) && yaw > -10.0f) {
-	//	yaw -= 1.0f;
-	//	theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 3, -3));
-	//	Quaternion rotation = Quaternion::AxisAngleToQuaterion(Vector3(0, 0, 1), -5.0f);
-	//	Quaternion currentRotation = theCube->GetPhysicsNode().GetOrientation();
-	//	theCube->GetPhysicsNode().SetOrientation(currentRotation * rotation);
-	//	theCube->GetPhysicsNode().SetUseGravity(TRUE);
-	//	if (yaw > -10.0f) {
-	//		Quaternion rotation = Quaternion::AxisAngleToQuaterion(Vector3(0, 0, 1), 5.0f);
-	//		Quaternion currentRotation = theCube->GetPhysicsNode().GetOrientation();
-	//		theCube->GetPhysicsNode().SetOrientation(currentRotation * rotation);
-	//		theCube->GetPhysicsNode().SetUseGravity(TRUE);
-	//	}
-	//}
+	
 
 	////supersonic speed 
 	//if (Window::GetKeyboard()->KeyHeld(KEYBOARD_L)) {
@@ -256,31 +164,31 @@ GameEntity* MyGame::BuildQuadEntity(float size) {
 
 void MyGame::CheckPlayers(){
 	for (int i = 0; i < MAX_PLAYER_NUMBER; i++){
-			if (sendPacket.activedPlayers[i] == 1 && activedPlayers[i] == 0){
-				GameEntity* e = BuildSphereEntity(50.0, Vector3(0, 0, 0), Vector3(0, 0, 0));
-				Vector3 vel(0, 0, -1);
-				e->GetPhysicsNode().SetLinearVelocity(vel);
-				e->GetPhysicsNode().SetPosition(Vector3(rand() % 1000, 1000, 0));
-				e->GetPhysicsNode().SetAngularVelocity(vel*0.005f);
-				e->GetPhysicsNode().SetInverseMass(1.0f / 1.0f);
-				e->GetPhysicsNode().SetInverseInertia(InertialMatrixHelper::createSphereInvInertial(1.0f / 10.0f, 100.0f));
-				allEntities.push_back(e);
-				players.insert(pair<int, GameEntity*>(i, e));
-				activedPlayers[i] = 1;
-				cout << "Create player " << i << endl;
-				time = timeCounter;
-			}
-			else if (sendPacket.activedPlayers[i] == 0 && activedPlayers[i] == 1){
-				delete players.find(i)->second;
-				players.erase(i);
-				activedPlayers[i] = 0;
-				cout << "Remove player " << i << endl;
-				time = timeCounter;
-			}
-			else{
-				continue;
-			}
+		if (sendPacket.activedPlayers[i] == 1 && activedPlayers[i] == 0){
+			GameEntity* e = BuildSphereEntity(50.0, Vector3(0, 0, 0), Vector3(0, 0, 0));
+			Vector3 vel(0, 0, -1);
+			e->GetPhysicsNode().SetLinearVelocity(vel);
+			e->GetPhysicsNode().SetPosition(Vector3(rand() % 1000, 1000, 0));
+			e->GetPhysicsNode().SetAngularVelocity(vel*0.005f);
+			e->GetPhysicsNode().SetInverseMass(1.0f / 1.0f);
+			e->GetPhysicsNode().SetInverseInertia(InertialMatrixHelper::createSphereInvInertial(1.0f / 10.0f, 100.0f));
+			allEntities.push_back(e);
+			players.insert(pair<int, GameEntity*>(i, e));
+			activedPlayers[i] = 1;
+			cout << "Create player " << i << endl;
+			time = timeCounter;
 		}
+		else if (sendPacket.activedPlayers[i] == 0 && activedPlayers[i] == 1){
+			delete players.find(i)->second;
+			players.erase(i);
+			activedPlayers[i] = 0;
+			cout << "Remove player " << i << endl;
+			time = timeCounter;
+		}
+		else{
+			continue;
+		}
+	}
 }
 
 void MyGame::ResetGame(){
@@ -304,5 +212,102 @@ void MyGame::CountTime(float msec){
 		}
 	if (time <= 0){
 		gameState = start;
+	}
+}
+
+void MyGame::tempSpaceshipControl(GameEntity* player){
+
+	//move forward
+	if (recvPacket.inputs[KEY_UP] == 1) {
+		theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, -3));
+	}
+	else if (recvPacket.inputs[KEY_UP] == 0) {
+		theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, 0));
+	}
+
+	//move back
+	if (recvPacket.inputs[KEY_DOWN] == 1) {
+		theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, 3));
+	}
+
+	//move left
+	if (recvPacket.inputs[KEY_LEFT] == 1 && roll > -10.0f) {
+		if (recvPacket.inputs[KEY_UP] == 1 && roll > -10.0f) {
+			roll -= 1.0f;
+			theCube->GetPhysicsNode().SetLinearVelocity(Vector3(-3, 0, -3));
+			Quaternion rotation3 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), -1.0f);
+			Quaternion currentRotation3 = theCube->GetPhysicsNode().GetOrientation();
+			theCube->GetPhysicsNode().SetOrientation(currentRotation3 * rotation3);
+		}
+		else if (recvPacket.inputs[KEY_DOWN] == 1 && roll > -10.0f) {
+			roll -= 1.0f;
+			theCube->GetPhysicsNode().SetLinearVelocity(Vector3(-3, 0, 0));
+			Quaternion rotation4 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), -1.0f);
+			Quaternion currentRotation4 = theCube->GetPhysicsNode().GetOrientation();
+			theCube->GetPhysicsNode().SetOrientation(currentRotation4 * rotation4);
+		}
+		else if (recvPacket.inputs[KEY_UP] == 0) {
+			Quaternion rotation4 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), 0.0f);
+			Quaternion currentRotation4 = theCube->GetPhysicsNode().GetOrientation();
+			theCube->GetPhysicsNode().SetOrientation(currentRotation4 * rotation4);
+		}
+		else {
+			roll -= 1.0f;
+			theCube->GetPhysicsNode().SetLinearVelocity(Vector3(-3, 0, 0));
+			Quaternion rotation = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), -1.0f);
+			Quaternion currentRotation = theCube->GetPhysicsNode().GetOrientation();
+			theCube->GetPhysicsNode().SetOrientation(currentRotation * rotation);
+		}
+	}
+
+
+	//move right
+	if (recvPacket.inputs[KEY_RIGHT] == 1 && roll < 10.0f) {
+		if (recvPacket.inputs[KEY_UP] == 1 && roll < 10.0f) {
+			roll += 1.0f;
+			theCube->GetPhysicsNode().SetLinearVelocity(Vector3(3, 0, -3));
+			Quaternion rotation4 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), 1.0f);
+			Quaternion currentRotation4 = theCube->GetPhysicsNode().GetOrientation();
+			theCube->GetPhysicsNode().SetOrientation(currentRotation4 * rotation4);
+		}
+		else if (recvPacket.inputs[KEY_DOWN] == 1 && roll < 10.0f) {
+			roll += 1.0f;
+			theCube->GetPhysicsNode().SetLinearVelocity(Vector3(3, 0, 0));
+			Quaternion rotation4 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), 1.0f);
+			Quaternion currentRotation4 = theCube->GetPhysicsNode().GetOrientation();
+			theCube->GetPhysicsNode().SetOrientation(currentRotation4 * rotation4);
+		}
+		else {
+			roll += 1.f;
+			theCube->GetPhysicsNode().SetLinearVelocity(Vector3(3, 0, 0));
+			Quaternion rotation2 = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), 1.0f);
+			Quaternion currentRotation2 = theCube->GetPhysicsNode().GetOrientation();
+			theCube->GetPhysicsNode().SetOrientation(currentRotation2 * rotation2);
+		}
+	}
+
+
+	//Barrel Roll
+	if (recvPacket.inputs[KEY_B] == 1) {
+		theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 0, -3));
+		Quaternion rotation = Quaternion::AxisAngleToQuaterion(Vector3(1, 0, 0), 10.0f);
+		Quaternion currentRotation = theCube->GetPhysicsNode().GetOrientation();
+		theCube->GetPhysicsNode().SetOrientation(currentRotation * rotation);
+	}
+
+	//jump
+	if (recvPacket.inputs[KEY_P] == 1 && yaw > -10.0f) {
+		yaw -= 1.0f;
+		theCube->GetPhysicsNode().SetLinearVelocity(Vector3(0, 3, -3));
+		Quaternion rotation = Quaternion::AxisAngleToQuaterion(Vector3(0, 0, 1), -5.0f);
+		Quaternion currentRotation = theCube->GetPhysicsNode().GetOrientation();
+		theCube->GetPhysicsNode().SetOrientation(currentRotation * rotation);
+		theCube->GetPhysicsNode().SetUseGravity(TRUE);
+		if (yaw > -10.0f) {
+			Quaternion rotation = Quaternion::AxisAngleToQuaterion(Vector3(0, 0, 1), 5.0f);
+			Quaternion currentRotation = theCube->GetPhysicsNode().GetOrientation();
+			theCube->GetPhysicsNode().SetOrientation(currentRotation * rotation);
+			theCube->GetPhysicsNode().SetUseGravity(TRUE);
+		}
 	}
 }

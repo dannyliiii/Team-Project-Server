@@ -41,13 +41,14 @@ enum GameState{
 };
 
 enum UserInputs{
-	KEY_UP = 0,
-	KEY_LEFT = 1,
-	KEY_RIGHT = 2,
-	KEY_DOWN = 3,
-	KEY_I = 4
+	KEY_UP,
+	KEY_LEFT,
+	KEY_RIGHT,
+	KEY_DOWN,
+	KEY_I,
+	KEY_B,
+	KEY_P
 };
-
 
 class GameClass	{
 public:
@@ -64,7 +65,7 @@ public:
 
 	void ReceiveFromClients();
 
-	void SendActionPackets();
+	virtual void SendActionPackets();
 
 	void SendInitPacket(int clientNumber);
 
@@ -95,5 +96,7 @@ protected:
 	unsigned int trackSeed;
 	unsigned int gameID;
 	int gameState;
+
+
 };
 
