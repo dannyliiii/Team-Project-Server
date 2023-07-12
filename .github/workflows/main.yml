@@ -1,0 +1,21 @@
+name: AI Code Reviewer
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+permissions: write-all
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: AI Code Reviewer
+        uses: freeedcom/ai-code-reviewer@main
+        with:
+          GITHUB_TOKEN: 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
+          OPENAI_API_KEY: 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
+          exclude: "**/*.json, **/*.md" # Optional: exclude patterns separated by commas
